@@ -67,17 +67,20 @@ export default {
 		},
 
 		deleteStudent(student){
-			console.log(student.studentID)
-			api
-			.delete(`/student/${student.studentID}`)
-			.then((response) => {
-				if (response.data.error)
-					alert("Não foi possível excluir o registro")
-				else{
-					this.getStudents()
-					alert("Registro excluído com sucesso")
-				}
-			})
+			if (confirm(`O aluno ${student.name} será excluído. Deseja continuar?`)){
+				console.log(student.studentID)
+				api
+				.delete(`/student/${student.studentID}`)
+				.then((response) => {
+					if (response.data.error)
+						alert("Não foi possível excluir o registro")
+					else{
+						this.getStudents()
+						alert("Registro excluído com sucesso")
+					}
+				})
+			}
+			
 		}
 	},
 	name: 'Home',
