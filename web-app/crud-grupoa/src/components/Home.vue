@@ -16,8 +16,8 @@
 			:search="search"
 		>
 			<template v-slot:[`item.actions`]="{ item }">
-				<v-icon small class="mr-2" @click="editStudent(item.id)">mdi-pencil</v-icon>
-				<v-icon small @click="deleteStudent(item)">mdi-delete</v-icon>
+				<v-btn :to="{ name: 'Edit', params: item }" title="Editar" class="mx-1"><v-icon small>mdi-pencil</v-icon></v-btn>
+				<v-btn @click="deleteStudent(item)" title="Excluir" class="mx-1"><v-icon small>mdi-delete</v-icon></v-btn>
 			</template>
 		</v-data-table>
 	</v-card>
@@ -80,8 +80,9 @@ export default {
 					}
 				})
 			}
-			
 		}
+
+
 	},
 	name: 'Home',
 	props: {
