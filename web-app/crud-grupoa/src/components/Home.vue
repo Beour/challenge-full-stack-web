@@ -14,11 +14,15 @@
 			:headers="headers"
 			:items="students"
 			:search="search"
-		></v-data-table>
+		>
+			<template v-slot:[`item.actions`]="{ item }">
+				<v-icon small class="mr-2" @click="editStudent(item.id)">mdi-pencil</v-icon>
+				<v-icon small @click="deleteStudent(item)">mdi-delete</v-icon>
+			</template>
+		</v-data-table>
 	</v-card>
 
 </template>
-
 
 <script>
 import api from "../services/api"
@@ -61,6 +65,20 @@ export default {
 				this.students = response.data.data;
 			});
 		},
+
+		deleteStudent(student){
+			console.log(student.studentID)
+			api
+			.delete(`/student/${student.studentID}`)
+			.then((response) => {
+				if (response.data.error)
+					alert("Não foi possível excluir o registro")
+				else{
+					this.getStudents()
+					alert("Registro excluído com sucesso")
+				}
+			})
+		}
 	},
 	name: 'Home',
 	props: {
