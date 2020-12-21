@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import vuetify from "./plugins/vuetify";
 import Home from './components/Home.vue'
 import Student from './components/Student.vue'
+import Edit from './components/Edit.vue'
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,11 @@ const routes = [
     name: 'Home',
     path: '/',
     component: Home
+  },
+  {
+    name: 'Edit',
+    path: '/edit',
+    component: Edit
   },
 ]
 
