@@ -112,9 +112,9 @@ export default {
 			}) 
 			.then((response) => {
 				if (response.data.error)
-					alert("Não foi possível cadastrar aluno")
+					this.$alert("Não foi possível cadastrar aluno", "Erro!","error")
 				else {
-					alert("Aluno cadastrado com sucesso!")
+					this.$alert("Aluno cadastrado com sucesso!","Sucesso!","success")
 					this.clear()
 				}
 			}) 

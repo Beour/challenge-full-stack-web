@@ -67,22 +67,21 @@ export default {
 		},
 
 		deleteStudent(student){
-			if (confirm(`O aluno ${student.name} será excluído. Deseja continuar?`)){
-				console.log(student.studentID)
+
+			this.$confirm(`O aluno ${student.name} será excluído. Deseja continuar?`,"Excluir","question")
+			.then(() => {
 				api
 				.delete(`/student/${student.studentID}`)
 				.then((response) => {
 					if (response.data.error)
-						alert("Não foi possível excluir o registro")
+						this.$alert("Não foi possível excluir o registro","Erro!","error")
 					else{
 						this.getStudents()
-						alert("Registro excluído com sucesso")
+						this.$alert("Registro excluído com sucesso","Sucesso!","success")
 					}
 				})
-			}
+			})				
 		}
-
-
 	},
 	name: 'Home',
 	props: {

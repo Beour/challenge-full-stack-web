@@ -5,8 +5,10 @@ import vuetify from "./plugins/vuetify";
 import Home from './components/Home.vue'
 import Student from './components/Student.vue'
 import Edit from './components/Edit.vue'
+import VueSimpleAlert from "vue-simple-alert";
 
 Vue.use(VueRouter);
+Vue.use(VueSimpleAlert);
 
 Vue.config.productionTip = false
 

@@ -119,9 +119,9 @@ export default {
 			}) 
 			.then((response) => {
 				if (response.data.error)
-					alert("Não foi possível alterar cadastro do aluno")
+					this.$alert("Não foi possível alterar cadastro do aluno","Erro!","error")
 				else {
-					alert("Aluno alterado com sucesso!")
+					this.$alert("Registro Alterado com sucesso","Sucesso!","success")
 					this.clear()
 				}
 			}) 
@@ -137,7 +137,6 @@ export default {
 			this.$refs.observer.reset()
         },
         getStudent() {
-            console.log(this.$route.params)
             this.studentID  = this.$route.params.studentID  
             this.name 		= this.$route.params.name 		
             this.email 		= this.$route.params.email 		
