@@ -130,10 +130,8 @@ export default {
 			})
 		},
 		clear () {
-			this.studentID = ""
 			this.name 		= ""
 			this.email 		= ""
-			this.cpf 		= ""
 			this.$refs.observer.reset()
         },
         getStudent() {
