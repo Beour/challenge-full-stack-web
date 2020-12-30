@@ -3,7 +3,7 @@
 	<div id="form">
 		<validation-observer
 			ref="observer"
-			
+			v-slot="{ invalid }"
 		>
 			<form @submit.prevent="submit">
 				<p>Cadastro de Aluno</p>
@@ -57,7 +57,7 @@
 						required
 					></v-text-field>
 				</validation-provider>
-				<v-btn class="mx-2" type="submit">Cadastrar</v-btn>
+				<v-btn class="mx-2" type="submit" :disabled="invalid">Cadastrar</v-btn>
 				<v-btn class="mx-2" @click="clear">Limpar</v-btn>
 				<v-btn class="mx-2" to="/home">Cancelar</v-btn>
 			</form>
@@ -104,6 +104,7 @@ export default {
 	}),
 	methods: {
 		submit ( ) {
+			
 			api.post("student",{
 				studentID  : this.studentID,
 				name 		: this.name,	
