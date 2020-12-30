@@ -3,7 +3,7 @@
 	<div id="form">
 		<validation-observer
 			ref="observer"
-			
+			v-slot="{ invalid }"
 		>
 			<form @submit.prevent="submit">
 				<p>Alteração de Cadastro de Aluno</p>
@@ -61,7 +61,7 @@
                         readonly
 					></v-text-field>
 				</validation-provider>
-				<v-btn class="mx-2" type="submit" >Alterar</v-btn>
+				<v-btn class="mx-2" type="submit" :disabled="invalid">Alterar</v-btn>
 				<v-btn class="mx-2" @click="clear">Limpar</v-btn>
 				<v-btn class="mx-2" to="/home">Cancelar</v-btn>
 			</form>
