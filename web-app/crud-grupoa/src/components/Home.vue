@@ -14,12 +14,23 @@
 			:headers="headers"
 			:items="students"
 			:search="search"
+			:page.sync="page"
+			:items-per-page="itemsPerPage"
+			hide-default-footer
+			@page-count="pageCount = $event"
 		>
 			<template v-slot:[`item.actions`]="{ item }">
 				<v-btn :to="{ name: 'Edit', params: item }" title="Editar" class="mx-1"><v-icon small>mdi-pencil</v-icon></v-btn>
 				<v-btn @click="deleteStudent(item)" title="Excluir" class="mx-1"><v-icon small>mdi-delete</v-icon></v-btn>
 			</template>
 		</v-data-table>
+		<div class="text-center">
+			<v-pagination
+				v-model="page"
+				:length="pageCount"
+			></v-pagination>
+			
+		</div>
 	</v-card>
 
 </template>
@@ -31,6 +42,9 @@ export default {
 	data () {
 		return {
 			search: '',
+			page: 1,
+			pageCount: 0,
+			itemsPerPage: 10,
 			headers: [
 				{
 					text: 'Registro Acadêmico',
