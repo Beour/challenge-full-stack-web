@@ -27,12 +27,9 @@
 
 ## O que eu melhoraria
 
-- Estilos de alertas e de lista de alunos, de modo que ficasse mais amigável ao usuário
 - Validação server-side dos dados de entrada
-- Aprimoramento da validação dos dados no front
 - Finalização da classe de validação e mensagem de erros no backend
 
 
 ## Requisitos não entregues
 
-- Validação e tratamento de erros nos forms da aplicação.
